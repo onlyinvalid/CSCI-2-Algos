@@ -1,9 +1,3 @@
 # CSCI-2-Algos
 
-# hello testing
-
-# RAWR
-
-# RAWR 2
-
-
+This is a repository of all the assignments I learned in my CS2 class
