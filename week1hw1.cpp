@@ -26,7 +26,29 @@ struct MonthlyBudget
 
 };
 
+//function prototypes
 // function to ask user how much is spent in each category per month (why pass by reference?*********)
+void spent(MonthlyBudget& S);
+
+void overUnder(double B, double S);
+
+double sum(MonthlyBudget q);
+
+void report(MonthlyBudget B, MonthlyBudget S);
+
+int main ()
+{
+   MonthlyBudget budget = {500.0, 150.0, 65.0, 50.0, 250.00, 30.0, 100.0, 150.0, 75.0, 50.0 };
+
+   MonthlyBudget spending;
+
+   spent(spending);
+
+   report(budget, spending);
+
+   return 0;
+};
+
 void spent(MonthlyBudget& S)
 {
    cout << "Please input amount spent in each category per month \n";
@@ -133,21 +155,4 @@ void report(MonthlyBudget B, MonthlyBudget S)
 
    cout << "For the total budget: ";
    overUnder(sumBudget, sumSpending);
-
-
-
 };
-
-
-int main ()
-{
-   MonthlyBudget budget = {500.0, 150.0, 65.0, 50.0, 250.00, 30.0, 100.0, 150.0, 75.0, 50.0 };
-
-   MonthlyBudget spending;
-
-   spent(spending);
-
-   report(budget, spending);
-
-   return 0;
-}
