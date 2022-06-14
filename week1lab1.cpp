@@ -1,3 +1,11 @@
+/*
+   Program name:  e.g. Rectangle.cpp
+   Programmer:  your name
+   Date: 2-18-22
+   Version: 1.4
+   Description: about 3 to 5 lines explain what is this program all about.
+*/
+
 #include <iostream>
 #include <string>
 
