@@ -33,43 +33,43 @@ void spent(MonthlyBudget& S)
 
    cout << "housing? " << '\n';
    cin  >> S.housing;
-   cout << '/n';
+   cout << '\n';
 
    cout << "utilities? " << '\n';
    cin  >> S.utilities;
-   cout << '/n';
+   cout << '\n';
 
    cout << "household Expenses? " << '\n';
    cin  >> S.householdE;
-   cout << '/n';
+   cout << '\n';
 
    cout << "transportation? " << '\n';
    cin  >> S.transportation;
-   cout << '/n';
+   cout << '\n';
 
    cout << "food? " << '\n';
    cin  >> S.food;
-   cout << '/n';
+   cout << '\n';
 
    cout << "medical? " << '\n';
    cin  >> S.medical;
-   cout << '/n';
+   cout << '\n';
    
    cout << "insurance? " << '\n';
    cin  >> S.insurance;
-   cout << '/n';
+   cout << '\n';
 
    cout << "entertainment? " << '\n';
    cin  >> S.entertainment;
-   cout << '/n';
+   cout << '\n';
 
    cout << "clothing? " << '\n';
    cin  >> S.clothing;
-   cout << '/n';
+   cout << '\n';
 
    cout << "misc? " << '\n';
    cin  >> S.misc;
-   cout << '/n';
+   cout << '\n';
 
 };
 
@@ -97,7 +97,7 @@ double sum(MonthlyBudget q)
 void report(MonthlyBudget B, MonthlyBudget S)
 {
    cout << "Report for monthly expenditures\n"
-         << "--------------------------------";
+        << "--------------------------------\n";
 
    cout << "housing: ";
    overUnder(B.housing, S.housing);
