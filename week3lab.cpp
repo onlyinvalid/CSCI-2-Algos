@@ -13,48 +13,41 @@
 class Employee
 {
     private:
-        std:: string m_employeeName = "";
-        std:: string m_employeeNumber = "";
-        std:: string m_employeeHireDate = "";
+        std::string m_employeeName;
+        std::string m_employeeNumber;
+        std::string m_employeeHireDate;
 
     public:
-        // constructor
-        Employee()
-        {
-            std:: string m_employeeName;
-            std:: string m_employeeNumber;
-            std:: string m_employeeHireDate;
-        }
     
+    // no need for constructor
     // setters
-    void setEmployeeName(std:: string eN)
+    void setEmployeeName(std::string eN)
     {
         m_employeeName = eN;
     }
 
-    void setEmployeeNumber(std:: string eNu)
+    void setEmployeeNumber(std::string eNu)
     {
         m_employeeNumber = eNu;
     }
 
-    void setEmployeeHireDate(std:: string eHd)
+    void setEmployeeHireDate(std::string eHd)
     {
         m_employeeHireDate = eHd;
     }
 
-
     // getters
-    std:: string getEmployeeName()
+    std::string getEmployeeName()
     {
         return m_employeeName; 
     }
 
-     std:: string getEmployeeNumber()
+     std::string getEmployeeNumber()
     {
         return m_employeeNumber;
     }
 
-    std:: string getEmployeeHireDate()
+    std::string getEmployeeHireDate()
     {
         return m_employeeHireDate;
     }
@@ -69,57 +62,51 @@ class ProductionWorker : public Employee
     
     public:
 
-        // constructor
-        ProductionWorker()
-        {
-            int m_shift;
-            double m_hourlyPayRate;
-        }
+    // no need for constructor
+    //setters
+    void setShiftNumber(int s)
+    {
+        m_shift = s;
+    }
+    
+    void setHourlyPayRate(double p)
+    {
+        m_hourlyPayRate = p;
+    }
 
-        //setters
-        void setShiftNumber(int s)
+    void shiftType()
+    {
+        if (getShiftNumber() == 1)
         {
-            m_shift = s;
+            std::cout << "Day Shift\n";
         }
-        
-        void setHourlyPayRate(double p)
-        {
-            m_hourlyPayRate = p;
-        }
+        else
+        std::cout << "Night Shift\n";
+    }
 
-        void shiftType()
-        {
-            if (getShiftNumber() == 1)
-            {
-                std:: cout << "Day Shift\n";
-            }
-            else
-            std:: cout << "Night Shift\n";
-        }
+    // getters
 
-        // getters
+    int getShiftNumber()
+    {
+        return m_shift;
+    }
 
-        int getShiftNumber()
-        {
-            return m_shift;
-        }
+    double getHourlyPayRate()
+    {
+        return m_hourlyPayRate;
+    }
 
-        double getHourlyPayRate()
-        {
-            return m_hourlyPayRate;
-        }
-
-        
+    
 
 };
 
 void print(ProductionWorker p)
 {
-    std:: cout << "Name: " << p.getEmployeeName() << '\n'
-               << "Number: " << p.getEmployeeNumber() << '\n'
-               << "Hire Date: " << p.getEmployeeHireDate() << '\n';
-    std:: cout << "Shift Type: "; p.shiftType();
-    std:: cout << "Hourly pay: $" << p.getHourlyPayRate() << '\n';
+    std::cout << "Name: " << p.getEmployeeName() << '\n'
+              << "Number: " << p.getEmployeeNumber() << '\n'
+              << "Hire Date: " << p.getEmployeeHireDate() << '\n';
+    std::cout << "Shift Type: "; p.shiftType();
+    std::cout << "Hourly pay: $" << p.getHourlyPayRate() << '\n';
 }
 
 int main()
