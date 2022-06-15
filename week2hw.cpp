@@ -95,4 +95,6 @@ int main()
     mor1.setTerm(10);
 
     print(mor1);
+
+    return 0;
 }
