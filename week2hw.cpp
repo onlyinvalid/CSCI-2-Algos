@@ -1,6 +1,6 @@
 /*
-   Program name:  e.g. Rectangle.cpp
-   Programmer:  your name
+   Program name: Monthly loan payment calculator
+   Programmer:  Alex Pulikkottil
    Date: 2-18-22
    Version: 1.4
    Description: about 3 to 5 lines explain what is this program all about.
@@ -10,24 +10,23 @@
 #include <string>
 #include <cmath>
 
-using namespace std;
-
+//mortage class
 class Mort
 {
 private:
-    double principle, rate;
-    int term;
+    double m_principle = 0, m_rate = 0;
+    int m_term = 0;
 
 public:
 
-    double monthlyP,totalP;
+    double m_monthlyP = 0,m_totalP = 0;
 
     // default constructor
     Mort()
     {
-        double principle = 0, rate = 0,
-        monthlyP = 0, totalP = 0;
-        int term = 0;
+        double m_principle, m_rate,
+        m_monthlyP, m_totalP;
+        int m_term;
     }
 
     //setters
@@ -35,7 +34,7 @@ public:
     {
         if ( p > 0)
         {
-            principle = p;
+            m_principle = p;
             return true;
         }
 
@@ -44,55 +43,56 @@ public:
 
     void setRate(double r)
     {
-        rate = r;
+        m_rate = r;
     }
 
     void setTerm(int t)
     {
-        term = t;
+        m_term = t;
     }
 
+    //modifier
     void calc()
     {
         int m = getTerm() * 12;
         double i = getRate() / 1200;
-        double monthlyP = (getPrinciple() * i) / (1.0 - pow(i +1, -1*m));
-        double totalP = monthlyP * m;
+        m_monthlyP = (getPrinciple() * i) / (1.0 - pow(i +1, -1*m));
+        m_totalP = m_monthlyP * m;
     }
-
 
     //getters
     double getPrinciple()
     {
-        return principle;
+        return m_principle;
     }
 
     double getRate()
     {
-        return rate;
+        return m_rate;
     }
 
     int getTerm()
     {
-        return term;
+        return m_term;
     }
 
 };
 
-void print(Mort M)
+//print function for statement
+void print(Mort q)
 {
-    M.calc();
-    cout << "Monthly Payment: " << M.monthlyP << '\n';
-    cout << "Total Paid at end of loan period: " << M.totalP << '\n';
+    q.calc();
+    std::cout << "Monthly Payment: " << q.m_monthlyP << '\n';
+    std::cout << "Total Paid at end of loan period: " << q.m_totalP << '\n';
 }
 
+//main driver
 int main()
 {
-    Mort mor1;
-    mor1.setPrinciple(12000);
-    mor1.setRate(6.5);
-    mor1.setTerm(30);
+    Mort mor1{};
+    mor1.setPrinciple(300000);
+    mor1.setRate(6);
+    mor1.setTerm(10);
 
     print(mor1);
-
 }
