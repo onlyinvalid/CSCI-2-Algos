@@ -1,8 +1,8 @@
 /*
-   Program name: 
+   Program name:
    Programmer:  Alex Pulikkottil
-   Date: 
-   Version: 
+   Date:
+   Version:
    Description: about 3 to 5 lines explain what is this program all about.
 */
 
@@ -10,116 +10,78 @@
 #include <string>
 
 // employee class
-class Employee
-{
-    private:
-        std::string m_employeeName;
-        std::string m_employeeNumber;
-        std::string m_employeeHireDate;
+class Employee {
+private:
+  std::string m_employeeName;
+  std::string m_employeeNumber;
+  std::string m_employeeHireDate;
 
-    public:
-    
-    // no need for constructor
-    // setters
-    void setEmployeeName(std::string eN)
-    {
-        m_employeeName = eN;
-    }
+public:
+  // no need for constructor
+  // setters
+  void setEmployeeName(std::string eN) { m_employeeName = eN; }
 
-    void setEmployeeNumber(std::string eNu)
-    {
-        m_employeeNumber = eNu;
-    }
+  void setEmployeeNumber(std::string eNu) { m_employeeNumber = eNu; }
 
-    void setEmployeeHireDate(std::string eHd)
-    {
-        m_employeeHireDate = eHd;
-    }
+  void setEmployeeHireDate(std::string eHd) { m_employeeHireDate = eHd; }
 
-    // getters
-    std::string getEmployeeName()
-    {
-        return m_employeeName; 
-    }
+  // getters
+  std::string getEmployeeName() { return m_employeeName; }
 
-     std::string getEmployeeNumber()
-    {
-        return m_employeeNumber;
-    }
+  std::string getEmployeeNumber() { return m_employeeNumber; }
 
-    std::string getEmployeeHireDate()
-    {
-        return m_employeeHireDate;
-    }
+  std::string getEmployeeHireDate() { return m_employeeHireDate; }
 };
 
-class ProductionWorker : public Employee
-{
-    private:
+class ProductionWorker : public Employee {
+private:
+  int m_shift = 0;
+  double m_hourlyPayRate = 0;
 
-        int m_shift = 0;
-        double m_hourlyPayRate = 0;
-    
-    public:
+public:
+  // no need for constructor
+  // setters
+  void setShiftNumber(int s) { m_shift = s; }
 
-    // no need for constructor
-    //setters
-    void setShiftNumber(int s)
-    {
-        m_shift = s;
-    }
-    
-    void setHourlyPayRate(double p)
-    {
-        m_hourlyPayRate = p;
-    }
+  void setHourlyPayRate(double p) { m_hourlyPayRate = p; }
 
-    void shiftType()
-    {
-        if (getShiftNumber() == 1)
-        {
-            std::cout << "Day Shift\n";
-        }
-        else
-        std::cout << "Night Shift\n";
-    }
+  void shiftType() {
+    if (getShiftNumber() == 1) {
+      std::cout << "Day Shift\n";
+    } else
+      std::cout << "Night Shift\n";
+  }
 
-    // getters
+  // getters
 
-    int getShiftNumber()
-    {
-        return m_shift;
-    }
+  int getShiftNumber() { return m_shift; }
 
-    double getHourlyPayRate()
-    {
-        return m_hourlyPayRate;
-    }
-
-    
-
+  double getHourlyPayRate() { return m_hourlyPayRate; }
 };
 
-void print(ProductionWorker p)
-{
-    std::cout << "Name: " << p.getEmployeeName() << '\n'
-              << "Number: " << p.getEmployeeNumber() << '\n'
-              << "Hire Date: " << p.getEmployeeHireDate() << '\n';
-    std::cout << "Shift Type: "; p.shiftType();
-    std::cout << "Hourly pay: $" << p.getHourlyPayRate() << '\n';
+// function prototype
+void print(ProductionWorker p);
+
+int main() {
+  ProductionWorker sam{};
+
+  sam.setEmployeeName("Sam");
+  sam.setEmployeeNumber("14");
+  sam.setEmployeeHireDate("12/12/12");
+  sam.setShiftNumber(1);
+  sam.setHourlyPayRate(12.5);
+
+  print(sam);
+
+  return 0;
 }
 
-int main()
-{
-    ProductionWorker sam{};
-
-    sam.setEmployeeName("Sam");
-    sam.setEmployeeNumber("14");
-    sam.setEmployeeHireDate("12/12/12");
-    sam.setShiftNumber(1);
-    sam.setHourlyPayRate(12.5);
-
-    print(sam);
-
-    return 0;
+// print function to output employee info
+void print(ProductionWorker p) {
+  std::cout << "Name: " << p.getEmployeeName() << '\n'
+            << "Number: " << p.getEmployeeNumber() << '\n'
+            << "Hire Date: " << p.getEmployeeHireDate() << '\n';
+  std::cout << "Shift Type: ";
+  p.shiftType();
+  std::cout << "Hourly pay: $" << p.getHourlyPayRate() << '\n';
 }
