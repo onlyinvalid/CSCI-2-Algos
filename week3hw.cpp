@@ -55,5 +55,4 @@ int main() {
   jim.who();
   fun(sam);
   fun(jim);
-  fun(jim);
 }
