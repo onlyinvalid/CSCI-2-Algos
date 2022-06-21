@@ -3,44 +3,56 @@
    Programmer:  Alex Pulikkottil
    Date:
    Version:
-   Description: virtual functions
+   Description: virtual functions, abstract class, friend functions
 */
 
 #include <iostream>
 #include <string>
 
 class Student {
-private:
-  int id{};
-  std::string name;
 
-public:
-  virtual void species() { std::cout << "I am human\n"; }
-  virtual void type() { std::cout << "I am a student\n"; }
-};
-
-class Undergraduate : public Student
-
-{
+  friend class Undergraduate;
+  friend class Graduate;
 
 private:
-  std::string status;
-  int accessLevel{};
+  int m_id{};
+  std::string m_name;
 
 public:
-  void species(){std::cout << "I am ";};
-  void access(int accessLevel) {
-    std::cout << "access level is: " << accessLevel << '\n';
-  };
-  void studentStatus() { std::cout << "I am an undergrad\n"; };
+  virtual void species() {}
+  virtual void type() {}
 };
 
-int main()
+class Undergraduate : public Student {
+private:
+  std::string m_status;
+  int m_accessLevel{};
 
-{
+public:
+  void species() { std::cout << "I am \n"; }
+  void naaame(std::string n) { m_name = n; }
+  void who() { std::cout << m_name << '\n'; }
+};
+
+class Graduate : public Student {
+private:
+  int m_accssLevel{};
+
+public:
+  void species() { std::cout << "I am a graduate\n"; }
+  void naaame(std::string n) { m_name = n; }
+  void who() { std::cout << m_name << '\n'; }
+};
+
+void fun(Student s) { std::cout << "I am a student\n"; }
+
+int main() {
   Undergraduate sam;
-
-  sam.species();
-  sam.access(2);
-  sam.studentStatus();
+  Graduate jim;
+  jim.naaame("Jimmy");
+  sam.naaame("Sammy");
+  sam.who();
+  jim.who();
+  fun(sam);
+  fun(jim);
 }
